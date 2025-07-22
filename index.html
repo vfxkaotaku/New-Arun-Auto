@@ -154,7 +154,7 @@
         }
         .slider-dots {
             position: absolute;
-            bottom: 30px;
+            bottom: 10px;
             left: 0;
             right: 0;
             display: flex;
@@ -233,6 +233,30 @@
             margin-right: 12px;
             width: 20px;
             text-align: center;
+        }
+        
+        /* 3D Box Effect for Generator Images */
+        .generator-3d-box {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            transition: transform 0.5s ease;
+            transform: perspective(1000px) rotateY(0deg);
+        }
+        .generator-3d-box:hover {
+            transform: perspective(1000px) rotateY(10deg);
+        }
+        .generator-3d-box::before {
+            content: '';
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            right: 5px;
+            bottom: 5px;
+            background: rgba(0,0,0,0.1);
+            transform: translateZ(-20px);
+            border-radius: 8px;
         }
         
         /* Mobile navbar styles */
@@ -330,65 +354,65 @@
                 </div>
             </div>
             
-            <!-- Desktop Navigation -->
-            <div class="hidden md:flex space-x-4 nav-links mt-4 md:mt-0 md:ml-auto">
-                <button class="nav-link nav-home">
-                    <i class="fas fa-home mr-2"></i> Home
-                </button>
-                <button class="nav-link nav-generators">
-                    <i class="fas fa-bolt mr-2"></i> Generators
-                </button>
-                <button class="nav-link nav-admin hidden">
-                    <i class="fas fa-cog mr-2"></i> Admin
-                </button>
-            </div>
-        </div>
-    </nav>
+  <!-- Desktop Navigation -->
+<div class="hidden md:flex items-center space-x-4 nav-links h-full py-2">
+    <button class="nav-link nav-home px-4 py-2">
+        <i class="fas fa-home mr-2"></i> Home
+    </button>
+    <button class="nav-link nav-generators px-4 py-2">
+        <i class="fas fa-bolt mr-2"></i> Generators
+    </button>
+    <button class="nav-link nav-admin hidden px-4 py-2">
+        <i class="fas fa-cog mr-2"></i> Admin
+    </button>
+</div>
 
-    <!-- Hero Banner with Slider -->
-    <div class="hero-banner">
-        <div class="hero-slider" id="hero-slider">
-            <!-- Slides will be added dynamically -->
-        </div>
-        <div class="hero-content text-white text-center">
-            <div class="container mx-auto px-6">
-                <h1 class="text-3xl md:text-5xl font-bold mb-4 animate-fade-in-down">NEW ARUN AUTO</h1>
-                <h2 class="text-xl md:text-2xl font-medium mb-8 tracking-wider">AUTHORIZED DIESEL GENERATOR DEALERS</h2>
-                
-                <div class="flex flex-wrap justify-center gap-4 md:gap-6 my-8">
-                    <div class="bg-white/20 p-3 md:p-4 rounded-lg backdrop-blur-sm">
-                        <h3 class="text-lg md:text-xl font-semibold">KIRLOSKAR</h3>
+    <!-- Hero Banner with Slider (Only shown on home page) -->
+    <div id="hero-banner-container">
+        <div class="hero-banner">
+            <div class="hero-slider" id="hero-slider">
+                <!-- Slides will be added dynamically -->
+            </div>
+            <div class="hero-content text-white text-center">
+                <div class="container mx-auto px-6">
+                    <h1 class="text-3xl md:text-5xl font-bold mb-4 animate-fade-in-down">NEW ARUN AUTO</h1>
+                    <h2 class="text-xl md:text-2xl font-medium mb-8 tracking-wider">AUTHORIZED DIESEL GENERATOR DEALERS</h2>
+                    
+                    <div class="flex flex-wrap justify-center gap-4 md:gap-6 my-8">
+                        <div class="bg-white/20 p-3 md:p-4 rounded-lg backdrop-blur-sm">
+                            <h3 class="text-lg md:text-xl font-semibold">KIRLOSKAR</h3>
+                        </div>
+                        <div class="bg-white/20 p-3 md:p-4 rounded-lg backdrop-blur-sm">
+                            <h3 class="text-lg md:text-xl font-semibold">MAHINDRA</h3>
+                        </div>
+                        <div class="bg-white/20 p-3 md:p-4 rounded-lg backdrop-blur-sm">
+                            <h3 class="text-lg md:text-xl font-semibold">KOEL</h3>
+                        </div>
                     </div>
-                    <div class="bg-white/20 p-3 md:p-4 rounded-lg backdrop-blur-sm">
-                        <h3 class="text-lg md:text-xl font-semibold">MAHINDRA</h3>
-                    </div>
-                    <div class="bg-white/20 p-3 md:p-4 rounded-lg backdrop-blur-sm">
-                        <h3 class="text-lg md:text-xl font-semibold">KOEL</h3>
-                    </div>
-                </div>
-                
-                <p class="text-base md:text-lg mb-8 max-w-3xl mx-auto opacity-90 leading-relaxed">
-                    58 Years of Excellence in Diesel Generators, Air Compressors, Alternator Rewinding & Civil Construction.
-                </p>
-                
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 max-w-4xl mx-auto mt-8">
-                    <div class="bg-white/20 p-3 md:p-4 rounded-lg backdrop-blur-sm">
-                        <p class="text-xl md:text-2xl font-bold">1000+</p>
-                        <p class="text-xs md:text-sm">GENERATORS SOLD</p>
-                    </div>
-                    <div class="bg-white/20 p-3 md:p-4 rounded-lg backdrop-blur-sm">
-                        <p class="text-xl md:text-2xl font-bold">58+</p>
-                        <p class="text-xs md:text-sm">YEARS EXPERIENCE</p>
-                    </div>
-                    <div class="bg-white/20 p-3 md:p-4 rounded-lg backdrop-blur-sm">
-                        <p class="text-xl md:text-2xl font-bold">4+</p>
-                        <p class="text-xs md:text-sm">GENERATOR MODELS</p>
+                    
+                    <p class="text-base md:text-lg mb-8 max-w-3xl mx-auto opacity-90 leading-relaxed">
+                        58 Years of Excellence in Diesel Generators, Air Compressors, Alternator Rewinding & Civil Construction.
+                    </p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 max-w-4xl mx-auto mt-8">
+                        <div class="bg-white/20 p-3 md:p-4 rounded-lg backdrop-blur-sm">
+                            <p class="text-xl md:text-2xl font-bold">1000+</p>
+                            <p class="text-xs md:text-sm">GENERATORS SOLD</p>
+                        </div>
+                        <div class="bg-white/20 p-3 md:p-4 rounded-lg backdrop-blur-sm">
+                            <p class="text-xl md:text-2xl font-bold">58+</p>
+                            <p class="text-xs md:text-sm">YEARS EXPERIENCE</p>
+                        </div>
+                        <div class="bg-white/20 p-3 md:p-4 rounded-lg backdrop-blur-sm">
+                            <p class="text-xl md:text-2xl font-bold">4+</p>
+                            <p class="text-xs md:text-sm">GENERATOR MODELS</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="slider-dots" id="slider-dots">
-            <!-- Dots will be added dynamically -->
+            <div class="slider-dots" id="slider-dots">
+                <!-- Dots will be added dynamically -->
+            </div>
         </div>
     </div>
 
@@ -409,9 +433,6 @@
 
         <!-- Generators Section -->
         <section id="generators-section" class="content-section py-12">
-            <div class="highlight-box inline-block mb-12 mx-auto">
-                <h2 class="text-3xl font-bold text-center text-[#f97316]">Our Generator Range</h2>
-            </div>
             <div id="search-results-info" class="text-center text-gray-600 mb-4 hidden">
                 Found <span id="results-count">0</span> matching generators
             </div>
@@ -514,13 +535,13 @@
                         <li><a href="#" class="text-gray-400 hover:text-white transition">Home</a></li>
                         <li><a href="#" class="text-gray-400 hover:text-white transition">Generators</a></li>
                         <li><a href="#" class="text-gray-400 hover:text-white transition">About Us</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition">Contact</a></li>
+                        
                     </ul>
                 </div>
                 <div>
                     <h4 class="text-lg font-semibold mb-4">Contact Us</h4>
                     <ul class="space-y-2 text-gray-400">
-                        <li class="flex items-center"><i class="fas fa-map-marker-alt mr-2"></i> 123, Industrial Area, Mumbai</li>
+                        <li class="flex items-center"><i class="fas fa-map-marker-alt mr-2"></i> opp. Neri Naka, Shahunagar, Jalgaon, Maharashtra 425001</li>
                         <li class="flex items-center"><i class="fas fa-phone mr-2"></i> +91 9022639081</li>
                         <li class="flex items-center"><i class="fas fa-envelope mr-2"></i> info@newarunauto.com</li>
                     </ul>
@@ -535,7 +556,7 @@
                 </div>
             </div>
             <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
-                <p>&copy; 2023 NEW ARUN AUTO. All rights reserved.</p>
+                <p>&copy; 2025 NEW ARUN AUTO. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -642,6 +663,7 @@
             mobileMenuBtn: document.getElementById('mobile-menu-btn'),
             sideMenu: document.getElementById('side-menu'),
             sideMenuOverlay: document.getElementById('side-menu-overlay'),
+            heroBannerContainer: document.getElementById('hero-banner-container'),
             formFields: {
                 id: document.getElementById('edit-id'),
                 brand: document.getElementById('brand'),
@@ -797,6 +819,14 @@
                 section.classList.remove('active');
             });
             document.getElementById(pageId).classList.add('active');
+            
+            // Show/hide hero banner based on page
+            if (pageId === 'home-section') {
+                elements.heroBannerContainer.style.display = 'block';
+            } else {
+                elements.heroBannerContainer.style.display = 'none';
+            }
+            
             // Close mobile menu when navigating
             elements.sideMenu.classList.remove('active');
             elements.sideMenuOverlay.classList.remove('active');
@@ -862,12 +892,22 @@
                 elements.generatorsGrid.innerHTML = filteredGenerators.map(gen => `
                     <div class="generator-card">
                         <div class="generator-image-container">
-                            <img src="${gen.image}" alt="${gen.brand} ${gen.model}" class="generator-image">
+                            <div class="generator-3d-box">
+                                <img src="${gen.image}" alt="${gen.brand} ${gen.model}" class="generator-image">
+                            </div>
                         </div>
                         <div class="p-6">
                             <h3 class="text-2xl font-bold text-gray-900 mb-2">${gen.kva}kVA ${gen.brand}</h3>
-                            <p class="text-gray-700 mb-4">${gen.model}</p>
-                            <p class="text-gray-600 mb-4">${gen.description.substring(0, 100)}...</p>
+                            <h4 class="text-lg font-semibold text-gray-700 mb-1">Model: ${gen.model}</h4>
+                            <p class="text-gray-600 mb-4">${gen.description}</p>
+                            
+                            <div class="mb-4">
+                                <h5 class="font-semibold text-gray-800 mb-2">Key Features:</h5>
+                                <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                    ${gen.features.map(feature => `<li>${feature}</li>`).join('')}
+                                </ul>
+                            </div>
+                            
                             <div class="flex flex-col space-y-3">
                                 <button class="highlight-button more-info-btn text-[#f97316] hover:text-white" data-generator-id="${gen.id}">
                                     <i class="fab fa-whatsapp mr-2"></i> More Information
@@ -911,7 +951,7 @@
         }
 
         function highlightSearchTerm(term) {
-            const elements = document.querySelectorAll('#generators-grid h3, #generators-grid p');
+            const elements = document.querySelectorAll('#generators-grid h3, #generators-grid h4, #generators-grid p, #generators-grid li');
             const regex = new RegExp(term, 'gi');
             
             elements.forEach(element => {
